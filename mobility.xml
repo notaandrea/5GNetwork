@@ -1,0 +1,8 @@
+<movement>
+    <!-- draw a sqare -->
+    <set speed="30" x="350" y="400" z ="1.7"/>
+    <repeat>
+        <forward d="200"/>
+        <turn angle="270"/>
+    </repeat>
+</movement>

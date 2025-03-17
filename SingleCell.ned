@@ -34,18 +34,18 @@ import inet.physicallayer.wireless.common.contract.packetlevel.IRadioMedium;
 network SingleCell
 {
     parameters:
-        int numUe = default(1);
+        int numUe;
         int numBgCells = default(0);
         @display("i=block/network2;bgb=1000,1000");
         @figure[title](type=label; pos=0,-1; anchor=sw; color=darkblue);
 
     submodules:
-        visualizer: <default(firstAvailableOrEmpty("IntegratedCanvasVisualizer"))> like IIntegratedVisualizer if typename != "" {
-            @display("p=60,633");
-        }
-        physicalEnvironment: PhysicalEnvironment {
-            @display("p=58,783");
-        }
+        //visualizer: <default(firstAvailableOrEmpty("IntegratedCanvasVisualizer"))> like IIntegratedVisualizer if typename != "" {
+        //    @display("p=60,633");
+        //}
+        //physicalEnvironment: PhysicalEnvironment {
+        //    @display("p=58,783");
+        //}
         channelControl: LteChannelControl {
             @display("p=56,92;is=s");
         }
@@ -76,15 +76,12 @@ network SingleCell
         gnb: gNodeB {
             @display("p=728,411;is=vl");
         }
-        bgCell[numBgCells]: BackgroundCell {
-            @display("p=297,418;is=vl");
-        }
         ue[numUe]: NRUe {
             @display("p=597,609");
         }
-        radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
-            @display("p=938,715");
-        }
+        //radioMedium: <default("UnitDiskRadioMedium")> like IRadioMedium {
+        //    @display("p=938,715");
+        //}
     connections:
         server.pppg++ <--> Eth10G <--> router.pppg++;
         router.pppg++ <--> Eth10G <--> upf.filterGate;

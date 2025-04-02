@@ -37,7 +37,7 @@ network SingleCell
         int numUe;
         int numBgCells = default(0);
         @display("i=block/network2;bgb=1000,1000");
-        @figure[title](type=label; pos=0,-1; anchor=sw; color=darkblue);
+        @figure[title](type=label; pos=0,-1; anchor=sw; color=white);
 
     submodules:
         //visualizer: <default(firstAvailableOrEmpty("IntegratedCanvasVisualizer"))> like IIntegratedVisualizer if typename != "" {
@@ -47,19 +47,19 @@ network SingleCell
         //    @display("p=58,783");
         //}
         channelControl: LteChannelControl {
-            @display("p=56,92;is=s");
+            @display("p=114,92;is=s");
         }
         routingRecorder: RoutingTableRecorder {
-            @display("p=58,177;is=s");
+            @display("p=114,177;is=s");
         }
         configurator: Ipv4NetworkConfigurator {
-            @display("p=58,293");
+            @display("p=114,291");
         }
         binder: Binder {
-            @display("p=56,418;is=s");
+            @display("p=114,410;is=s");
         }
         carrierAggregation: CarrierAggregation {
-            @display("p=60,518;is=s");
+            @display("p=114,512;is=s");
         }
         server: StandardHost {
             @display("p=337,114;is=n;i=device/server");
@@ -68,10 +68,10 @@ network SingleCell
             @display("p=498,112;i=device/smallrouter");
         }
         upf: Upf {
-            @display("p=677,116");
+            @display("p=673,112");
         }
         iUpf: Upf {
-            @display("p=849,114");
+            @display("p=847,112");
         }
         gnb: gNodeB {
             @display("p=728,411;is=vl");
